@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>project 1</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+</head>
+<body>
+    <h2>User Management System</h2>
+    <div class="notify">
+        <a href="{{url_for('add')}}">Add User</a>
+        <h3>
+            {% with message = get_flashed_messages() %}
+                {% if message %}
+                    {% for msg in message %}
+                        {{msg}}
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </h3>
+    </div>
+
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>CITY</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+        </thead>
+        <tbody>
+        {% for data in datas %}
+        <tr>
+
+            <td>{{data.ID}}</td>
+            <td>{{data.NAME}}</td>
+            <td>{{data.AGE}}</td>
+            <td>{{data.CITY}}</td>
+            <td><a href="{{url_for('edit',id=data.ID)}}">EDIT</a></td>
+            <td><a onclick="return confirm('Are You Sure to Delete ?')" href="{{url_for('delete',id=data.ID)}}">DELETE</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Management System</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+</head>
+<body>
+    <h2>Edit User details</h2>
+    <form action="" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value="{{data.NAME}}">
+        <label for="age">Age</label>
+        <input type="text" id="age" name="age" value="{{data.AGE}}">
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" value="{{data.CITY}}">
+        <button  type="submit" >Submit</button>
+    </form>
+</body>
+</html>
